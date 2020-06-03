@@ -6,6 +6,9 @@
 * {
     margin: 0;
     padding:0;
+    /*o padding não vai esticar a caixa,
+     propriedades de largura e altura chega a borda*/
+    box-sizing: border-box;
 }
 html {
     font-family: 'Roboto', sans-serif;
