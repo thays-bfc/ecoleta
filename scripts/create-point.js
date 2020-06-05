@@ -21,12 +21,14 @@ function getCities(event) {
     stateInput.value = event.target.options[indexOfSelectedState].text;
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
-
+    citySelect.innerHTML = `<option value="">Selecione o Estado</option>`;
+    citySelect.disabled = true;
     fetch(url)
         .then((res) => { return res.json() })
         .then(cities => {
+
             for (const city of cities)
-                citySelect.innerHTML += `<option value="${city.id}"> ${city.nome}<option>`
+                citySelect.innerHTML += `<option value="${city.nome}"> ${city.nome}</option>`
             citySelect.disabled = false;
         }
         );
@@ -34,3 +36,38 @@ function getCities(event) {
 
 document.querySelector("select[name=uf]")
     .addEventListener("change", getCities);
+
+//Itens de coleta
+
+const itemsToCollect = document.querySelectorAll(".items-grid li");
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click", handleSelectedItem);
+}
+
+let selectedItems = [];
+const collectedItems = document.querySelector("input[name=items]");
+
+function handleSelectedItem(event) {
+    //Adicionar ou remover uma classe com js
+    const itemLi = event.target;
+    itemLi.classList.toggle("selected");//Remove ou inclui
+
+    const itemId = itemLi.dataset.id;
+
+    //verifica se existe
+    const alreadySelected = selectedItems.findIndex(item => item == itemId);
+
+    //Retirar ao selecionar novamete
+    if (alreadySelected >= 0) {
+        const filteredItems = selectedItems.filter(item => item != itemId)
+        selectedItems = filteredItems;
+    } else {     //Adicionar aqueles que não estão
+        selectedItems.push(itemId);
+    }
+
+
+    //Atualizar campo escondido com os itens selecionados
+    collectedItems.value = selectedItems;
+
+}
