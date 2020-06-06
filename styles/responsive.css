@@ -17,6 +17,10 @@
     #page-home main {
         align-items: center;
     }
+    /*Muda posição do grid para uma coluna quando tela menor que 900px*/
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
 }
 /*Quando tamanho for maior do que esse*/
 @media (min-width:1700px) {
