@@ -1,0 +1,23 @@
+{
+  "name": "nlw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thays-bfc/ecoleta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thays-bfc/ecoleta/issues"
+  },
+  "homepage": "https://github.com/thays-bfc/ecoleta#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
