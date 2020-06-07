@@ -4,9 +4,9 @@ const close = document.querySelector("#modal .header a");
 
 //Ao clicar no botão Pontos de Coleta altera a classe hide
 buttonSearch.addEventListener("click", () => {
-    modal.classList.toggle("hide")
+    modal.classList.remove("hide")
 });
 
 close.addEventListener("click", () => {
-    modal.classList.toggle("hide")
+    modal.classList.add("hide")
 })
